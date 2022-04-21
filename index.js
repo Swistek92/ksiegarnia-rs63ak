@@ -10,10 +10,10 @@ const fetchData = (url) =>
   fetch(url).then((res) =>
     res.status === 200
       ? res.json()
-      : (output.innerHTML = `<a href="https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/auto_complete?format=json&q=harry%20potter">uzyskaj dostęp</a>`)
+      : window.location.replace(
+          'https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/auto_complete?format=json&q=harry%20potter'
+        )
   );
-
-
 const createItems = (item) => ` <li class="entry">
 <img class="entry__image" src="${item.imageUrl}" alt="Cover">
 <a href="https://goodreads.com${item.bookUrl}"> <p class="entry__name">${item.bookTitleBare}</p> </a>
